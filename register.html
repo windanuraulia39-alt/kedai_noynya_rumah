@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Web UKK</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="font/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top bg-success">
+    <div class="container">
+        <a class="navbar-brand text-white" href="#beranda">
+            Kedai Nyonya Rumah
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link text-white" href="index.html">Beranda</a>
+                <a class="nav-link text-white" href="index.html#tentangkami">Tentang Kami</a>
+                <a class="nav-link text-white" href="index.html#layanan">Layanan</a>
+                <a class="nav-link text-white" href="index.html#kontak">Kontak</a>
+                <a class="nav-link text-white" href="login.html">Login</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Formulir Login -->
+<section class="login-section d-flex align-items-center">
+    <div class="container">
+        <div class="row justify-content-center align-items-center">
+
+        
+            <!-- FORM -->
+            <div class="col-md-5">
+                <div class="login-card bg-success p-4 shadow">
+                    <h3 class="text-center mb-4">Registrasi</h3>
+
+
+                    <form id="formregister" onsubmit="return register ()">
+                        <div class="mb-3">
+                            <label>username</label>
+                            <input type="text" id="username" class="form-control">
+                        </div>
+
+
+
+                        <div class="mb-3">
+                            <label>nomor ponsel</label>
+                            <input type="nomorponsel" id="nomorponsel" class="form-control">
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label>password</label>
+                            <input type="password" id="password" class="form-control">
+                        </div>
+                        
+
+                        <div class="d-flex justify-content-between">
+                            <div class="mb-8" my-5></div>
+                            <button type="submit" class="btn btn-success">Registrasi</button>
+                        
+                        </div>
+
+                        <p class="text-center mt-3">
+                            Sudah punya akun? <a href="login.html">Login Di sini</a>
+                        </p>
+                        
+            
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer class="bg-success text-white py-3 text-center">
+    <p class="mb-0">&copy; 2026 Kedai Nyonya Rumah</p>
+</footer>
+
+<script src="js/login.js"></script>
+
+<!-- JAVASCRIPT LOGIN -->
+<script>
+function register(){
+
+let username = document.getElementById("username").value.trim()
+let nomorponsel = document.getElementById("nomorponsel").value.trim()
+let password = document.getElementById("password").value.trim()
+
+// validasi kosong
+if(!username|| !nomorponsel || !password){
+    alert("Semua data harus diisi")
+    return false
+}
+
+// ambil akun
+let akun = JSON.parse(localStorage.getItem("akun")) || []
+
+// cek duplikat ponsel
+let cek = akun.find(user => user.username === username && user.password === password)
+
+if(cek){
+    alert("Email sudah terdaftar")
+    return false
+}
+
+// simpan user
+let user = {
+    username,
+    nomorponsel,
+    password
+}
+
+akun.push(user)
+localStorage.setItem("akun", JSON.stringify(akun))
+
+alert("Registrasi berhasil")
+
+//pindah ke halaman login setelah registrasi
+window.location.href = "login.html"
+
+return false
+}
+</script>
+
+</body>
+</html>

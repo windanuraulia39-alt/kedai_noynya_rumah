@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UKK_WINDA_PAKET C</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <style>
+        body{
+            background-color: #f5f5f5;
+        }
+
+        .table-box{
+            width: 80%;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td{
+            border: 1px solid black;
+        }
+
+        th, td{
+            padding: 10px;
+            text-align: center;
+        }
+
+        footer{
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-success">
+        <div class="container">
+
+            <a class="navbar-brand text-white" href="index.html">
+                Kedai Nyonya Rumah
+            </a>
+
+            <!-- tombol hamburger -->
+            <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <div class="navbar-nav ms-auto">
+
+                    <a class="nav-link text-white" href="index.html">
+                        Beranda
+                    </a>
+
+                    <a class="nav-link text-white" href="riwayat.html">
+                        Riwayat Pesanan
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- TABLE -->
+    <div class="table-box">
+
+        <h3 class="text-center mb-4">
+            Riwayat Pesanan
+        </h3>
+
+        <table>
+
+            <thead class="table-success">
+
+                <tr>
+                    <th>No</th>
+                    <th>Menu</th>
+                    <th>Harga</th>
+                    <th>Jumlah</th>
+                    <th>Nomor Meja</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="list">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer bg-success text-white py-3 text-center">
+        <p class="mb-0">
+            &copy; 2026 Kedai Nyonya Rumah
+        </p>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/riwayat.js"></script>
+
+</body>
+</html>
